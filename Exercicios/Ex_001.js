@@ -7,9 +7,10 @@ let registraRedesSociais = () =>{
             nome:prompt(`Digite o nome da rede social`),
             link: prompt(`Digite o link`)
         }
+        // inserir objeto no vetor
+        socialMidia.push(redeSocial)
     }
-    // inserir objetos no vetor
-    socialMidia.push(redeSocial)
+    // Cadastro dos usuarios
     let user = []
     for(let i=0;i<5;i++){
         let usuario = {
@@ -31,17 +32,27 @@ let registraRedesSociais = () =>{
         if (!achou){
             alert(`usuário não inserido, pois a rede social não foi encontrada`)
         }
-        user.push(usuario)
+        
         // exercicio 1 ->
-        let postPorRede
-        for(let i=0;i<5;i++){
-            postPorRede = usuario.qtdpost
+        
+    // Exe1) o usuário informa a rede social, e o programa retorna quantos posts foram feitos
+    let codigo = Number(prompt(`Informe o código da rede social`))
+    let conta = 0
+    for(let i=0;i<5;i++){
+        if(user[i].CodRede == codigo){
+            conta = conta + user[i].qtdpost
+        }
+        if(conta == 0){
+            console.log(`Não houve postagem ou rede social não existe`)
 
         }
+        else{
+            console.log(`A quantidade de post feitas pelo usuario ${codigo} foi ${conta}`)
+        }
+    } 
+  }
+}
 
-    }
-// Exe1) o usuário informa a rede social, e o programa retorna quantos posts foram feitos
 // Exe2) o programa retorna quantos posts foram feitos em todas as redes sociais
 // Exe3) o usuário  informa o login do usuário, e o programa retorna quantos posts ele fez
 // Exe4) o programa retorna quantos posts foram feitos por cada usuário
-}
