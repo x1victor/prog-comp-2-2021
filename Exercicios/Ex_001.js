@@ -78,16 +78,23 @@ let sistemaVendas = () => {
                         console.log(` O total de vendas do vendedor ${codigo4} foi ${soma}`)
                     }
                     break
-            case 5: let mes = Number(prompt(`Informe o mês de interesse`))
-            for(let i=0;i<vetVendas.length;i++){
-                
-            }
-
-                break
+            case 5: let mes5 = Number(prompt(`Informe o mês de interesse`))
+                    let maiorValor = 0
+                    let vendedorMaisVendeu = 0 
+                    for(let i=0;i<vetVendas.length;i++){
+                        if (vetVendas[i].mes == mes5){
+                            if (vetVendas[i].valor > maiorValor){
+                                maiorValor = vetVendas[i].valor // atualiza o maior valor
+                                vendedorMaisVendeu = vetVendas[i].codigo
+                            }
+                        }
+                    }
+                    console.log(`O vendedor que mais vendeu foi ${vendedorMaisVendeu} com ${maiorValor}`)
+                    break
             case 6: alert(`O programa será encerrado`)
                     break
             default: alert(`Opção inválida`)
         }
     }
-    while (opcao != 5)
+    while (opcao != 6)
 }
