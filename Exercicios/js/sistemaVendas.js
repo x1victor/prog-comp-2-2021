@@ -67,7 +67,7 @@ let cadastraVenda = (vetVendas) => {
     for(let i=0;i<vetVendas.length;i++){
         // não podemos cadastrar duas vendas para um mesmo vendedor no mesmo mês
         if ((vetVendas[i].codigo == objeto.codigo) && (vetVendas[i].mes == objeto.mes)){
-            achou = true // encontrei - não podemos cadastrar venda
+            achou = true // encontrei - não podemos cadastrar venda         
         }
     }
     if (!achou){

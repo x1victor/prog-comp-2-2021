@@ -7,6 +7,7 @@ let sistemaImobiliaria = () =>{
             case 1:
                 cadastraImovel(vetImovel)
             case 2: let tipo = prompt(`Qual tipo de imóvel A, B ou C`).toUpperCase()
+
             consultaImoveis(vetImoveis,tipo)
                 break
             case 3: consultaValorTotal(vetImoveis)
@@ -31,7 +32,8 @@ let cadastraImoveis = (vetImoveis) =>{
     let achou = false 
     for(let i =0;i<vetImoveis.length;i++){
         if(vetImoveis[i].codigo == objeto.codigo){
-            achou = truealert(`Código já existe`)
+            achou = true 
+            alert(`Código já existe`)
         }
     }
     if(!achou){
