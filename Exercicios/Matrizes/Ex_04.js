@@ -1,23 +1,42 @@
-let Inicio = () =>{
-    let notaAluno =[]
-    let aluno = [15]
-    let media
-    let soma 
-    for(let i =0;i<3; i++){
-        notaAluno[i] = []
-        notaAluno[i]=prompt(`Digite seu nome: `)
-        for(let j = 1;j <=5; j++){
-            notaAluno[i][j]= Number(prompt(`Digite sua nota na ${j}ª prova `))
+let sistemaAcademico = () => {
+    // declaração das estrut dados
+    let vet = []
+    let mat = []
+    for(let i=0;i<3;i++){
+        // para cada aluno
+        // insere nome do aluno no objeto
+        let objeto = {
+            nome:prompt(`Informe nome do aluno ${i+1}`),
+            media: 0 
         }
-        aluno[i] = notaAluno[i]
-    }
-    for(let i in notaAluno){
-        media = 0
-        soma = 0
-        for(let j in notaAluno){
-            soma = soma + notaAluno[i][j] 
+        // insere o objeto no vetor
+        vet.push(objeto)
+        mat[i] = [] // aloca espaço na memória para a matriz
+        alert(`Informe 5 notas do aluno ${vet[i].nome}`)
+        for(let j=0;j<5;j++){
+            // adiciona a nota na matriz
+            mat[i][j] = Number(prompt(`Nota ${j+1}`))
         }
-        media = soma 
-        alert(`A média de ${aluno[i]} foi ${media}.`)
     }
+    // calcula média
+    let turma = 0
+    for(let i=0;i<3;i++){
+        for(let j=0;j<5;j++){
+            // soma as notas de um aluno
+            vet[i].media = vet[i].media + mat[i][j]
+        }
+        vet[i].media = vet[i].media / 5 // calcula a média 
+        turma = turma + vet[i].media
+        if (vet[i].media >= 6){
+            alert(`Aluno ${vet[i].nome} foi aprovado`)
+        }  
+        else if (vet[i].media >=3){
+            alert(`Aluno ${vet[i].nome} está de exame`)
+        }
+        else {
+            alert(`Aluno ${vet[i].nome} foi reprovado`)
+        }
+    }
+    turma = turma / 3
+    alert(`A média da turma é ${turma}`)
 }
